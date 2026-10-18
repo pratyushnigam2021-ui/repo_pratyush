@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pacer – Everyday shoes</title>
+  <meta name="description" content="Pacer makes running, casual and boot styles in colours you'll actually want to wear." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Pacer home">Pacer</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#shop">Shop</a>
+      <a href="#why">Why Pacer</a>
+      <a href="#join">Newsletter</a>
+    </nav>
+    <button class="cart-btn" id="openCart" type="button" aria-label="Open cart">
+      Cart <span class="badge" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <h1>Everyday slippers in colours not worth wearing.</h1>
+        <p class="lead">Light, comfortable pairs for running errands, running miles, and walking home in the rain.</p>
+
+        <div class="swatch-block">
+          <p class="swatch-title" id="swatchTitle">Try a colour</p>
+          <div class="swatches" id="swatches" role="group" aria-labelledby="swatchTitle"></div>
+          <p class="hero-label" id="heroLabel" aria-live="polite"></p>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="heroAdd" type="button">Add to cart</button>
+          <a class="btn btn-ghost" href="login.html">Shop all shoes</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="false">
+        <div class="hero-disc"></div>
+        <div class="hero-shoe" id="heroShoe"></div>
+      </div>
+    </section>
+
+    <!-- Shop -->
+    <section class="shop" id="shop" aria-labelledby="shopTitle">
+      <div class="section-head">
+        <h2 id="shopTitle">The range</h2>
+        <div class="filters" id="filters" role="group" aria-label="Filter shoes by type">
+          <button type="button" class="chip" data-filter="All" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-filter="Running" aria-pressed="false">Running</button>
+          <button type="button" class="chip" data-filter="Casual" aria-pressed="false">Casual</button>
+          <button type="button" class="chip" data-filter="Boots" aria-pressed="false">Boots</button>
+        </div>
+      </div>
+      <p class="result-count" id="resultCount" aria-live="polite"></p>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <!-- Why -->
+    <section class="why" id="why" aria-labelledby="whyTitle">
+      <h2 id="whyTitle">Buy with </h2>
+      <ul class="facts">
+        <li>
+          <h3>30-day returns</h3>
+          <p>Wear them around for a month. If they don't fit your life, send them back free.</p>
+        </li>
+        <li>
+          <h3>Paid shipping over $100</h3>
+          <p>Orders arrive in three to five working days, packed in a recycled box.</p>
+        </li>
+        <li>
+          <h3>Made to be resoled</h3>
+          <p>Every pair has a replaceable outsole, so the uppers keep going after the tread wears out.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="join" id="join" aria-labelledby="joinTitle">
+      <div>
+        <h2 id="joinTitle">Hear about new colours first</h2>
+        <p>One email a month. No spam, and you can unsubscribe in one click.</p>
+      </div>
+      <form class="join-form" id="joinForm" novalidate>
+        <label for="email" class="sr-only">Email address</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+        <p class="form-msg" id="formMsg" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Pacer. Prices shown in US dollars.</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-head">
+      <h2>Your cart</h2>
+      <button type="button" class="icon-btn" id="closeCart" aria-label="Close cart">Close</button>
+    </div>
+    <ul class="cart-list" id="cartList"></ul>
+    <p class="cart-empty" id="cartEmpty">Your cart is empty. Pick a pair from the range.</p>
+    <div class="drawer-foot">
+      <div class="total-row"><span>Total</span><strong id="cartTotal">$0</strong></div>
+      <button type="button" class="btn btn-primary btn-block" id="checkout">Check out</button>
+      <p class="form-msg" id="checkoutMsg" role="status"></p>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
